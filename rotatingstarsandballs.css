@@ -1,0 +1,93 @@
+body {
+    height: 100vh;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
+.main {
+    background:red;
+    width: 40px;
+    height: 40px;
+    border-radius: 50px;
+    transform-origin: center;
+    animation: around 2s ease infinite;
+}
+
+.circle {
+    background:red;
+    width: 40px;
+    height: 40px;
+    clip-path: circle();
+    position: relative;
+    transform-origin: center;
+}
+
+.circle:nth-child(1) {
+    left: -100px;
+    animation: slideleft 2s ease forwards infinite;
+    
+}
+
+.circle:nth-child(2) {
+    left: 100px;
+    top: -40px;
+    animation: slideright 2s ease forwards infinite;
+}
+
+@keyframes around {
+    0% {
+       transform: rotate(0deg);
+       background-color: orange;
+    }
+    25% {
+        background: yellowgreen;
+    }
+    50% {
+        transform: rotate(0deg);
+        background-color: darkmagenta;
+    }
+    100% {
+        transform: rotate(360deg);
+        background-color: pink;
+    }
+}
+
+@keyframes slideleft {
+    0% {
+        transform: translateX(0px);
+        background-color: orange;
+    }
+    25% {
+        transform: translateX(-100px);
+        background: yellowgreen;
+        clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    }
+    50% {
+        transform: translateX(0px);
+        background-color: darkmagenta;
+    }
+    100% {
+        transform: translateX();
+        background-color: pink;
+    }
+}
+
+@keyframes slideright {
+    0% {
+        transform: translateX(0px);
+        background-color: orange;
+    }
+    25% {
+        transform: translateX(100px);
+        background:yellowgreen;
+        clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    }
+    50% {
+        transform: translateX(0px);
+        background-color: darkmagenta;
+    }
+    100% {
+        background-color: pink;
+    }
+}
